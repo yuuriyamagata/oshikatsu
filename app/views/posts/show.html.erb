@@ -1,0 +1,47 @@
+#投稿機能
+<h2>New Post</h2>
+<%= form_with model: @new_post do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit 'Post' %>
+  </div>
+<% end %>
+#詳細画面
+<div>
+  <h2>Post detail</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(@user) do %>
+            <%= image_tag @user.get_profile_image(80,80) %><br>
+            <%= @user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to post_path(@post) do %>
+            <%= @post.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= @post.body %>
+        </td>
+         <% if @user == current_user %>
+          <td>
+            <%= link_to "Edit", edit_post_path(@post)%>
+          </td>
+          <td>
+            <%= link_to "Destroy", post_path(@post), method: :delete %>
+          </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

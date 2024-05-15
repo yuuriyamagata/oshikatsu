@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <div>
+      <h1>Editing Post</h1>
+      <%= form_with model: @post, mothod: :patch do |f| %>
+        <div>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+        <div>
+          <%= f.label :body %>
+          <%= f.text_area :body %>
+        </div>
+        <div>
+          <%= f.submit "Update" %>
+        </div>
+      <% end %>
+
+      <%= link_to "Show", post_path(@post) %>
+      |
+      <%= link_to "Back", posts_path %>
+    </div>
+  </div>
+</div>
