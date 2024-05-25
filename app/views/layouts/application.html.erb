@@ -1,50 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Oshikatsu</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/659aaf6027.js" crossorigin="anonymous"></script>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <header>
-      <nav>
-        <div>
-          <%= link_to 'Oshikatsu', root_path %>
-        </div>
-        <ul>
-          <li>
-            <%= link_to root_path do %>
-              <i class="fas fa-home" aria-hidden="true"> Home</i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to about_path do %>
-              <i class="fas fa-link" aria-hidden="true"> About</i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_registration_path do %>
-              <i class="fas fa-user-plus" aria-hidden="true"> Sign up</i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_session_path do %>
-              <i class="fas fa-sign-in-alt" aria-hidden="true"> Log in</i>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <%= yield %>
-    <footer>
-      <div>
-        <p>CopyRight Infratop.inc</p>
-      </div>
-    </footer>
-  </body>
+    <head>
+      <title>Oshikatsu</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <script src="https://kit.fontawesome.com/659aaf6027.js" crossorigin="anonymous"></script>
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+   
+    <body>
+      <header>
+        <%= render 'layouts/header' %>
+      </header>
+      <main>
+          <p class="notice"><%= notice %></p>
+        <%= yield %>
+      </main>
+      <footer>
+       <div class="container mt-5">
+       <div class="row">
+       <div class="mx-auto">
+         <p>CopyRight Infratop.inc</p>
+       </div>
+       </div>
+       </div>
+      </footer>
+    </body>
 </html>

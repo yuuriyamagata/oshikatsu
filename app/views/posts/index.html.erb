@@ -1,46 +1,13 @@
-<h2>New post</h2>
-<%= form_with model: @post do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
-  <div>
-    <%= f.submit 'Post' %>
-  </div>
-<% end %>
-
-<div>
-  <h2>Posts</h2>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Body</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td>
-            <%= link_to user_path(post.user_id) do %>
-              <%= image_tag post.user.get_profile_image(80,80) %>
-            <% end %>
-            </td>
-          <td>
-            <%= link_to post_path(post.id) do %>
-              <%= post.title %>
-            <% end %>
-            </td>
-          <td><%= post.body %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container px-5 px-sm-0">
+    <%= render 'layouts/error', obj: @post %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'users/info', user: @user %>
+        <%= render 'new', post: @post %>
+      </div>
+          
+      <div class="col-md-8 offset-md-1">
+        <%= render 'index', posts: @posts %>
+      </div>
+    </div>
 </div>

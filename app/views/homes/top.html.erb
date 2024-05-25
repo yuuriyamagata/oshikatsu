@@ -1,9 +1,17 @@
-<div>
-  <h1>ようこそ<strong>Oshikatsu</strong>へ!!</h1>
-  <p>推しについて話したい人も、推しがまだいない人も、今の気分に合った曲を探したい人も音楽好きのためのサイト</p>
-  <p>o s h i k a t s u</p>
-  <div>
-    <div><%= link_to "Log in", new_user_session_path %></div>
-    <div><%= link_to "Sign up", new_user_registration_path %></div>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>welcome to <strong>Oshikatsu</strong> !!</h1>
+      <p></p>
+
+      <div class="btn-wrapper mx-auto col-10">
+        <div class="row">
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-sm btn-info btn-block mb-3" %>
+        </div>
+        <div class="row">
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-sm btn-success btn-block" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
