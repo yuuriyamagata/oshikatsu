@@ -14,13 +14,19 @@
           <%= link_to user_path(post.user_id) do %>
             <%= image_tag post.user.get_profile_image(80,80) %>
           <% end %>
-          </td>
+        </td>
         <td>
           <%= link_to post_path(post.id) do %>
             <%= post.title %>
           <% end %>
-          </td>
+        </td>
         <td><%= post.body %></td>
+        <td>
+          <%= render 'favorites/favorite', post: post %>
+        </td>
+        <td>
+          コメント数：<%= post.post_comments.count %>
+        </td>
       </tr>
     <% end %>
   </tbody>
