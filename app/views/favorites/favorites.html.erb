@@ -1,4 +1,5 @@
-<h2>Posts</h2>
+<h2>Favorites</h2>
+<% if @favorites.any? %>
 <table class="table table-hover">
     <thead>
       <tr>
@@ -8,7 +9,8 @@
       </tr>
     </thead>
     <tbody>
-      <% posts.each do |post| %>
+   <% @favorites.each do |favorite| %>
+   <% post = favorite.post %>
         <tr>
           <td>
             <%= link_to user_path(post.user_id) do %>
@@ -28,6 +30,9 @@
             コメント数：<%= post.post_comments.count %>
           </td>
         </tr>
-      <% end %>
+   <% end %>
     </tbody>
 </table>
+<% else %>
+  <p>お気に入りはありません</p>
+<% end %>
